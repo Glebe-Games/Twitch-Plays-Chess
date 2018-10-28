@@ -12,31 +12,25 @@ public class modePicker : MonoBehaviour
     public GameObject twitchLogin;
     public GameObject board;
     public GameObject colorPicker;
+    public GameObject twitchChat;
 
     public static bool white;
 
-    void Start()
-    {
-        board.SetActive(false);
-    }
-    void Update()
-    {
-    }
     public void SinglePlayer()
     {
         whichMode = 1;
-        Debug.Log(whichMode);
         bestCanvas.SetActive(false);
         board.SetActive(true);
         inGmaeCanvas.SetActive(true);
+        twitchChat.SetActive(false);
     }
     public void TwoPlayer()
     {
         whichMode = 2;
         bestCanvas.SetActive(false);
-        Debug.Log(whichMode);
         board.SetActive(true);
         inGmaeCanvas.SetActive(true);
+        twitchChat.SetActive(false);
     }
     public void TwitchVsAI()
     {

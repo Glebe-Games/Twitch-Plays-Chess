@@ -108,9 +108,18 @@ public class BoardManager : MonoBehaviour
 
     public int modes;
     // Use this for initialization
-    void Start()
+    void OnEnable()
     {
         Instance = this;
+        if(activeChessman != null){
+        foreach (GameObject go in activeChessman)
+           Destroy(go);
+        }
+
+        isWhiteTurn = true;
+        if(BoardHighlights.Instance != null){
+            BoardHighlights.Instance.HideHighlights();
+        }
         spawnAllChessman();
         /*System.Array.Reverse(PawnPlace);
         System.Array.Reverse(BishopPlace);
@@ -131,11 +140,7 @@ public class BoardManager : MonoBehaviour
                 chessManCanMove[i, k] = true;
             }
         }
-        if (ScriptForInGameMenue.pause)
-        {
-
-        }
-        else if (!isWhiteTurn && modes == 1)
+        if (!ScriptForInGameMenue.pause && !isWhiteTurn && modes == 1)
         {
             LoadAI();
         }

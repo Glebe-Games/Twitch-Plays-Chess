@@ -16,15 +16,27 @@ public class CameraController : MonoBehaviour {
     }
     void LateUpdate() {
         mode = modePicker.whichMode;
-        if (mode == 3 || mode == 4)
+        if (mode == 3)
         {
-            transform.position = new Vector3(0, 9, move);
-            transform.eulerAngles = new Vector3(60, rotate);
+            if (modePicker.white)
+            {
+                transform.position = new Vector3(0, 9, -2);
+                transform.eulerAngles = new Vector3(60, 0);
+            }
+            else 
+            {
+                transform.position = new Vector3(8, 9, 11);
+                transform.eulerAngles = new Vector3(60, 180);
+            }
+        }
+        else if(mode == 4){
+            transform.position = new Vector3(0, 9, -2);
+            transform.eulerAngles = new Vector3(60, 0);
         }
         else if(mode == 1)
         {
-            transform.position = new Vector3(4, 9, move);
-            transform.eulerAngles = new Vector3(60, rotate);
+            transform.position = new Vector3(4, 9, -2);
+            transform.eulerAngles = new Vector3(60, 0);
         }
         else{
             transform.position = new Vector3(4, 9, move);

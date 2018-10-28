@@ -18,6 +18,13 @@ public class Menu : MonoBehaviour
 	public GameObject colorPicker;
 
 	public GameObject playingGameUI;
+	
+	public GameObject board;
+
+    void OnEnable()
+    {
+        board.SetActive(false);
+    }
 
     public void StartGame()
 	{
